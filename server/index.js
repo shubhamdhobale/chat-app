@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import userRoute from './routes/user.routes.js'
 
 dotenv.config({
   path:'./.env'
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(cors())
 app.use(express.json())
+app.use('/api/auth', userRoute)
 
 //MongoDB connection
 const connectDB = async () => {
